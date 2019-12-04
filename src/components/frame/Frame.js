@@ -1,9 +1,11 @@
 import React from "react";
+import { createStore } from "redux";
 
-function updateState(bikeTypeId){
-    this.setState({bikeTypeId:bikeTypeId})
-}
+
+const store = createStore();
 class Frames extends React.Component {
+
+
 
     state = {
         frames: [],
