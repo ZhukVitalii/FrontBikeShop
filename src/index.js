@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import './index.css';
 import {
     Route,
@@ -8,33 +9,28 @@ import {
 } from "react-router-dom";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Frame from "./components/frame/Frame";
+// redux-logger is a middleware that lets you log every state change
+import logger from 'redux-logger';
+
+// redux-thunk is a middleware that lets you dispatch async actions
+import thunk from 'redux-thunk';
+import FrameComponent from "./components/frame/FrameComponent";
+import {
+    createStore,
+    applyMiddleware
+} from 'redux';
+import rootReducer from './reducers/frame/reducer';
+const middleware = applyMiddleware(thunk, logger);
+const store = createStore(rootReducer, middleware);
 
 
-// var bikeType = undefined;
-// function setBykeType(bikeType) {
-//     if (bikeType !== undefined){
-//         this.setState({bikeTypeId:bikeType})
-//     }
-// }
-
-
-const routing = (
-
-
-    <Router>
-        <div>
-            <hr />
-            <Switch>
-                <Route exact path="/" component={App} />
-                <Route path="/frames" component={Frame} />
-            </Switch>
-        </div>
-    </Router>
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
 );
-
-
-ReactDOM.render(routing, document.getElementById("root"));
+serviceWorker.unregister();
 
 
 

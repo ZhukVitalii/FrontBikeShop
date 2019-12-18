@@ -1,8 +1,8 @@
 import React from "react";
 import { createStore } from "redux";
+import shortid from 'shortid';
 
-
-const store = createStore();
+//const store = createStore();
 class Frames extends React.Component {
 
 
@@ -18,7 +18,8 @@ class Frames extends React.Component {
             <div>
                 <center><h1>Frame List</h1></center>
                 {this.state.frames.map((frame) => (
-                    <div className="card">
+                    <div key={shortid.generate()}
+                        className="card">
                         <div className="card-body">
                             <h5 className="card-title">{frame.frameId}</h5>
                             <h6 className="card-subtitle mb-2 text-muted">{frame.bikeType}</h6>

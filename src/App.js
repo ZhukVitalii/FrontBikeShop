@@ -2,14 +2,17 @@ import React, {Component} from 'react';
 import Contacts from './components/contacts';
 import Frame from "./components/frame/Frame";
 import {BrowserRouter as Router} from "react-router-dom";
-
+import HeaderContainer from './components/header/HeaderContainer'
 class App extends Component {
 
 
 
     render() {
         return (
-            <div className="banner-bg banner-sec">
+            <div>
+                <HeaderContainer/>
+            </div>
+           /* <div className="banner-bg banner-sec">
                 <div className="container">
                     <div className="header">
                         <div className="logo">
@@ -47,23 +50,24 @@ class App extends Component {
                         <div className="clearfix"></div>
                     </div>
                 </div>
-            </div>
+            </div>*/
 
         )
     }
 
-    state = {
-        contacts: []
-    };
-
-    componentDidMount() {
-        fetch('http://localhost:8080/get-frame-sizes')
-            .then(res => res.json())
-            .then((data) => {
-                this.setState({ contacts: data })
-            })
-            .catch(console.log)
-    }
+    // state = {
+    //     contacts: []
+    // };
+    //
+    // componentDidMount() {
+    //     fetch('http://localhost:8080/get-frame-sizes')
+    //         .then(res => res.json())
+    //         .then((data) => {
+    //             this.setState({ contacts: data })
+    //         })
+    //         .catch(console.log);
+    //
+    // }
 
 
 
