@@ -2,24 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import './index.css';
-import {
-    Route,
-    BrowserRouter as Router,
-    Switch
-} from "react-router-dom";
-import App from './App';
+// import {
+//     Route,
+//     BrowserRouter as Router,
+//     Switch
+// } from "react-router-dom";
+import App from './app/App';
 import * as serviceWorker from './serviceWorker';
 // redux-logger is a middleware that lets you log every state change
 import logger from 'redux-logger';
 
 // redux-thunk is a middleware that lets you dispatch async actions
 import thunk from 'redux-thunk';
-import FrameComponent from "./components/frame/FrameComponent";
 import {
     createStore,
     applyMiddleware
 } from 'redux';
-import rootReducer from './reducers/frame/reducer';
+import rootReducer from './app/frame/duck/reducer';
 const middleware = applyMiddleware(thunk, logger);
 const store = createStore(rootReducer, middleware);
 

@@ -1,16 +1,12 @@
 import { connect } from 'react-redux';
 import FrameComponent from './FrameComponent';
-import { frameOperations } from './reducers/frame';
+import frameOperations  from './duck/operations';
 
-const mapStateToProps = state => {
-    const { bikeType, frameSize, frameData } = state.home;
-
-    return {
-        bikeType,
-        frameSize,
-        frameData
-    }
-};
+const mapStateToProps = state => ({
+    bikeType: state.frameReducer,
+    frameSize: state.frameReducer,
+    frameData: state.frameReducer
+});
 
 const mapDispatchToProps = (dispatch) => {
 

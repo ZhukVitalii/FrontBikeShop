@@ -1,22 +1,19 @@
 import { connect } from 'react-redux';
 import HeaderComponent from './HeaderComponent';
-import  frameOperations  from '/home/vitalii_zhuk/BikeShopProject/FrontEnd/FrontBikeShop/src/reducers/frame/operations.js';
+import  frameOperations  from './duck/operations.js';
 
-// const mapStateToProps = state => {
-//     const { bikeType, frameSize, frameData } = state.home;
-//
-//     return {
-//         bikeType,
-//         frameSize,
-//         frameData
-//     }
-// };
+
+const mapStateToProps = state => ({
+    bikeType: state.headerReducer,
+    frameSize: state.headerReducer,
+    receiveFrameJsonAction: state.headerReducer
+});
 
 const mapDispatchToProps = (dispatch) => {
 
-    const chooseBikeType = () => {
+    const chooseBikeType = (type) => {
         console.log("Frame Container - choose Bike Type");
-        dispatch(frameOperations.bikeType(1))
+        dispatch(frameOperations.bikeType(type))
     };
     const chooseFrameSize = () =>{
         console.log("Frame Container - choose Frame Size");
@@ -36,7 +33,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const HeaderContainer = connect(
-    //mapStateToProps,
+    mapStateToProps,
     mapDispatchToProps
 )(HeaderComponent);
 

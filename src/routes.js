@@ -1,10 +1,9 @@
-import {Frame}
-from './components/Frame'
+import {FrameContainer} from './app/frame'
 
 const routes = [
     {
         path: "/frames",
-        component: Frame,
+        component: FrameContainer,
         exact: true
     }
 

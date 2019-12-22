@@ -54,7 +54,7 @@ const fetchFrameJson = (frame) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 'bikeTypeId': '1',
-                'bikeType': 'MTB',
+                'bikeType': frame,
                 'frameSizeId': '1',
                 'itemsPerPage': '5',
                 'page':'0'
@@ -64,12 +64,11 @@ const fetchFrameJson = (frame) => {
                 const responseData = json;
                 let data = [];
 
-                responseData.data.children.map(child => {
+                responseData.map(child => {
                     const childData = {
-                        title: child.data.title,
-                        url: child.data.permalink
+                        frameId: child.frameId,
+                        bikeType: child.bikeType
                     };
-
                     data.push(childData);
                     return null;
                 });
