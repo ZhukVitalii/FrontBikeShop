@@ -1,7 +1,7 @@
 import types from './types';
 
 const INITIAL_STATE = {
-    bikeType: '1',
+    //bikeType: '1',
     frameSize: '',
     frameData: [{
         frameId :15,

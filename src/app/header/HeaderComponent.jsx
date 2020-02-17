@@ -1,17 +1,25 @@
 import React from 'react';
 import {
     BrowserRouter as Router,
-    Route
+    Route,
+    Link
 } from 'react-router-dom';
 import FrameContainer from '../frame/FrameContainer';
 import FrameComponent from "../frame/FrameComponent";
 
 class HeaderComponent extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            showFrameComponent: false,
+        };
+        this.loadFrame = this.loadFrame.bind(this);
+    }
 
     render() {
-        console.log("bikeType = " + this.state.bikeType);
+       // console.log("bikeType = " + this.state.bikeType);
         return (
-
+        <div>
             <div className="banner-bg banner-sec">
                 <div className="container">
                     <div className="header">
@@ -29,9 +37,9 @@ class HeaderComponent extends React.Component{
                             <ul className="nav">
                                 <li className="dropdown1"><a href="#chooseBike">Зібрати велосипед</a>
                                     <ul className="dropdown2">
-                                        <li onClick={() => this.loadFrame("MTB")}>МТВ</li>
-                                        <li onClick={() => this.loadFrame("SHOSSE")}><a href="/frames">ШОССЕ</a></li>
-                                        <li onClick={() => this.loadFrame("CITY")}><a href="/frames">МІСЬКИЙ</a></li>
+                                        <li onClick={() => this.loadFrame("MTB")}><a>MTB</a></li>
+                                        <li onClick={() => this.loadFrame("SHOSSE")}><a>ШОССЕ</a></li>
+                                        <li onClick={() => this.loadFrame("CITY")}><a>МІСЬКИЙ</a></li>
                                     </ul>
                                 </li>
                                 <li className="dropdown1"><a href="#cate">КОМППОНЕНТИ</a>
@@ -50,15 +58,22 @@ class HeaderComponent extends React.Component{
                         <div className="clearfix"></div>
                     </div>
                 </div>
-                <Router>
-                    <Route path='/frames'   component={FrameContainer}/>
-                </Router>
             </div>
+            <div>
+                {this.state.showFrameComponent ?
+                    <FrameComponent /> :
+                    null
+                }
+            </div>
+        </div>
 
         )
     }
     loadFrame(type){
         this.props.chooseBikeType(type);
+        this.setState({
+            showFrameComponent: true,
+        });
     }
 
 

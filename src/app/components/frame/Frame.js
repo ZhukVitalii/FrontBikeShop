@@ -31,7 +31,7 @@ class Frames extends React.Component {
     };
 
     componentDidMount(){
-        this.frames =  fetch('http://localhost:8080/get-frames', {
+        this.frames =  fetch('http://localhost:8080/frame/search', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

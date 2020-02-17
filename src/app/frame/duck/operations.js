@@ -49,11 +49,11 @@ console.log("Start Dispatch");
         // Dispatching this action will toggle the 'showRedditSpinner'
         // flag in the store, so that the UI can show a loading icon.
         dispatch(requestFrameJsonAction(frame));
-        return fetch('http://localhost:8080/get-frames',{
+        return fetch('http://localhost:8080/frame/search',{
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                'bikeTypeId': '1',
+                'bikeTypeId': '2',
                 'bikeType': frame,
                 'frameSizeId': '1',
                 'itemsPerPage': '5',
@@ -64,12 +64,12 @@ console.log("Start Dispatch");
                 const responseData = json;
                 let data = [];
 
-                responseData.map(child => {
-                    const childData = {
-                        frameId: child.frameId,
-                        bikeType: child.bikeType
+                responseData.resultResponse.forEach(frame => {
+                    const frameData = {
+                        frameId: frame.frameId,
+                        bikeType: frame.bikeType
                     };
-                    data.push(childData);
+                    data.push(frameData);
                     return null;
                 });
                 dispatch(receiveFrameJsonAction(data))

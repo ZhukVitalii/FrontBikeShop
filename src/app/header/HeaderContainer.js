@@ -4,16 +4,18 @@ import  frameOperations  from './duck/operations.js';
 
 
 const mapStateToProps = state => ({
-    bikeType: state.headerReducer,
-    frameSize: state.headerReducer,
-    receiveFrameJsonAction: state.headerReducer
+    bikeType: state.bikeType,
+    frameSize: state.frameSize,
+    frameData: state.frameData
 });
 
 const mapDispatchToProps = (dispatch) => {
 
     const chooseBikeType = (type) => {
-        console.log("Frame Container - choose Bike Type");
-        dispatch(frameOperations.bikeType(type))
+        console.log("Header Container - choose Bike Type");
+        dispatch(frameOperations.bikeType(type));
+        console.log('Header Container - fetch frame');
+        dispatch(frameOperations.fetchFrameJson(type));
     };
     const chooseFrameSize = () =>{
         console.log("Frame Container - choose Frame Size");
@@ -21,7 +23,7 @@ const mapDispatchToProps = (dispatch) => {
     };
 
     const fetchFrameJson = (frame) => {
-        console.log('Frame Container - fetch frame');
+        console.log('Header Container - fetch frame');
         dispatch(frameOperations.fetchFrameJson(frame))
     };
 

@@ -49,7 +49,7 @@ const fetchFrameJson = (frame) => {
         // Dispatching this action will toggle the 'showRedditSpinner'
         // flag in the store, so that the UI can show a loading icon.
         dispatch(requestFrameJsonAction(frame));
-        return fetch('http://localhost:8080/get-frames',{
+        return fetch('http://localhost:8080/frame/search',{
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -64,7 +64,7 @@ const fetchFrameJson = (frame) => {
                 const responseData = json;
                 let data = [];
 
-                responseData.map(child => {
+                responseData.resultResponse.forEach(child => {
                     const childData = {
                         frameId: child.frameId,
                         bikeType: child.bikeType

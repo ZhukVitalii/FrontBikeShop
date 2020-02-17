@@ -1,18 +1,21 @@
 import { connect } from 'react-redux';
 import FrameComponent from './FrameComponent';
 import frameOperations  from './duck/operations';
+import PropTypes from 'prop-types';
 
 const mapStateToProps = state => ({
-    bikeType: state.frameReducer,
-    frameSize: state.frameReducer,
-    frameData: state.frameReducer
+    bikeType: state.bikeType,
+    frameSize: state.frameSize,
+    frameData: state.frameData
 });
 
 const mapDispatchToProps = (dispatch) => {
 
-    const chooseBikeType = () => {
-        console.log("Frame Container - choose Bike Type");
-        dispatch(frameOperations.bikeType(1))
+    const chooseBikeType = (type) => {
+        //console.log("Frame Container - choose Bike Type");
+        //dispatch(frameOperations.bikeType(type));
+        console.log('Frame Container - fetch frame');
+        dispatch(frameOperations.fetchFrameJson(type));
     };
     const chooseFrameSize = () =>{
         console.log("Frame Container - choose Frame Size");
