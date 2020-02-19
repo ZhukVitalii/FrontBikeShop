@@ -9,7 +9,8 @@ const { Creators, Types } = createActions({
     frameSize: ['value'],
     bikeType: ['value'],
     requestFrameJson: ['frame'],
-    receiveFrameJson: ['frameData']
+    receiveFrameJson: ['frameData'],
+    showFrameComponent: ['value']
 });
 
 export { Creators, Types };

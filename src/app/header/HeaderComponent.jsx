@@ -8,16 +8,14 @@ import FrameContainer from '../frame/FrameContainer';
 import FrameComponent from "../frame/FrameComponent";
 
 class HeaderComponent extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            showFrameComponent: false,
-        };
-        this.loadFrame = this.loadFrame.bind(this);
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         showFrameComponent: false,
+    //     };
+    // }
 
     render() {
-       // console.log("bikeType = " + this.state.bikeType);
         return (
         <div>
             <div className="banner-bg banner-sec">
@@ -37,9 +35,9 @@ class HeaderComponent extends React.Component{
                             <ul className="nav">
                                 <li className="dropdown1"><a href="#chooseBike">Зібрати велосипед</a>
                                     <ul className="dropdown2">
-                                        <li onClick={() => this.loadFrame("MTB")}><a>MTB</a></li>
-                                        <li onClick={() => this.loadFrame("SHOSSE")}><a>ШОССЕ</a></li>
-                                        <li onClick={() => this.loadFrame("CITY")}><a>МІСЬКИЙ</a></li>
+                                        <li onClick={() => this.loadFrame({type:"MTB", typeId:1})}><a>MTB</a></li>
+                                        <li onClick={() => this.loadFrame({type:"SHOSSE", typeId:2})}><a>ШОССЕ</a></li>
+                                        <li onClick={() => this.loadFrame({type:"CITY", typeId:3})}><a>МІСЬКИЙ</a></li>
                                     </ul>
                                 </li>
                                 <li className="dropdown1"><a href="#cate">КОМППОНЕНТИ</a>
@@ -60,8 +58,8 @@ class HeaderComponent extends React.Component{
                 </div>
             </div>
             <div>
-                {this.state.showFrameComponent ?
-                    <FrameComponent /> :
+                {this.props.showFrameComponent ?
+                    <FrameContainer /> :
                     null
                 }
             </div>
@@ -71,9 +69,7 @@ class HeaderComponent extends React.Component{
     }
     loadFrame(type){
         this.props.chooseBikeType(type);
-        this.setState({
-            showFrameComponent: true,
-        });
+        this.props.setShowFrameComponent();
     }
 
 
