@@ -1,4 +1,4 @@
-import types from '../../duck/types';
+import types from '../../../duck/types';
 
 const INITIAL_STATE = {
     //bikeType: '1',

@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 // import Contacts from './components/contacts';
 // import Frame from "./components/frame/Frame";
 import {BrowserRouter as Router} from "react-router-dom";
-import HeaderContainer from './header/HeaderContainer'
-import MainContainer from "./main_component/MainContainer";
+import HeaderContainer from './components/header/HeaderContainer'
+import MainContainer from "./components/main_component/MainContainer";
 
 class App extends Component {
 

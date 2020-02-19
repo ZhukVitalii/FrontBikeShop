@@ -21,4 +21,4 @@ const MainContainer = connect(
     mapDispatchToProps
 )(MainComponent);
 
-export default MainComponent;
+export default MainContainer;

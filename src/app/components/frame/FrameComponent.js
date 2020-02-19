@@ -1,6 +1,5 @@
 import shortid from 'shortid';
-import HeaderComponent from '../header/HeaderComponent';
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 
 class FrameComponent extends Component {
 
@@ -16,13 +15,10 @@ class FrameComponent extends Component {
                 {this.props.frameData.map((frame) => (
 
                     <div className="details-left-slider" key={shortid.generate()}>
-                        <a href="#">
-                            <img height="300" width="300" src={frame.way}/>
-                        </a>
-
+                        <img height="300" width="300" src={frame.way} alt="frame img"/>
                         <div className="details-left-info">
                             <div className="link-to-one">
-                                <a href="#">
+                                <a>
                                     <h3>{frame.name}</h3>
                                 </a>
                             </div>

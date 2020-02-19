@@ -18,7 +18,7 @@ import {
     createStore,
     applyMiddleware
 } from 'redux';
-import rootReducer from './app/frame/duck/reducer';
+import rootReducer from './app/components/frame/duck/reducer';
 const middleware = applyMiddleware(thunk, logger);
 const store = createStore(rootReducer, middleware);
 

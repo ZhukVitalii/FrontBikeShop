@@ -1,20 +1,6 @@
 import React from 'react';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom';
-import FrameContainer from '../frame/FrameContainer';
-import FrameComponent from "../frame/FrameComponent";
 
 class HeaderComponent extends React.Component{
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         showFrameComponent: false,
-    //     };
-    // }
-
     render() {
         return (
         <div>
@@ -56,12 +42,6 @@ class HeaderComponent extends React.Component{
                         <div className="clearfix"></div>
                     </div>
                 </div>
-            </div>
-            <div>
-                {this.props.showFrameComponent ?
-                    <FrameContainer /> :
-                    null
-                }
             </div>
         </div>
 
