@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import  headerReducer  from './app/components/header/duck/reducer'
-import  frameReducer  from './app/components/frame/duck/reducer'
+import  headerReducer  from './app/components/header/reducer'
+import  frameReducer  from './app/components/frame/reducer'
 
 const rootReducer = combineReducers({
     headerReducer: headerReducer,

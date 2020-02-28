@@ -1,24 +1,24 @@
 import MainComponent from './MainComponent'
 import {connect} from "react-redux";
-import frameOperations from "../header/duck/operations";
+import frameOperations from "../header/operations";
 
 const mapStateToProps = state => ({
-    showFrameComponent: state.showFrameComponent
+    showFrameSizeComponent: state.showFrameSizeComponent
 });
 
 const mapDispatchToProps = (dispatch) => {
-    const setShowFrameComponent = () => {
-        dispatch(frameOperations.showFrameComponent(true))
-    };
-
-    return {
-        setShowFrameComponent
-    }
+    // const setShowFrameSizeComponent = () => {
+    //     dispatch(frameOperations.showFrameSizeComponent(true))
+    // };
+    //
+    // return {
+    //     setShowFrameSizeComponent: setShowFrameSizeComponent
+    // }
 };
 
 const MainContainer = connect(
     mapStateToProps,
-    mapDispatchToProps
+   // mapDispatchToProps
 )(MainComponent);
 
 export default MainContainer;

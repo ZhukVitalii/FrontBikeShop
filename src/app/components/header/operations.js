@@ -1,11 +1,10 @@
 import fetch from 'cross-fetch';
-import {Creators} from '../../../duck/actions';
-
+import {Creators} from '../../duck/actions';
 const frameSize = Creators.frameSize;
 const bikeType = Creators.bikeType;
 const requestFrameJsonAction = Creators.requestFrameJson;
 const receiveFrameJsonAction = Creators.receiveFrameJson;
-const showFrameComponent = Creators.showFrameComponent;
+const showFrameSizeComponent = Creators.showFrameSizeComponent;
 
 
 
@@ -30,10 +29,6 @@ const fetchFrameJson = (frame) => {
                 let data = [];
 
                 responseData.resultResponse.forEach(frame => {
-                    // const frameData = {
-                    //     frameId: frame.frameId,
-                    //     bikeType: frame.bikeType
-                    // };
                     data.push(frame);
                     return null;
                 });
@@ -46,5 +41,5 @@ export default {
     frameSize,
     bikeType,
     fetchFrameJson,
-    showFrameComponent
+    showFrameSizeComponent: showFrameSizeComponent
 }

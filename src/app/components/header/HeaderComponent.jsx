@@ -49,7 +49,7 @@ class HeaderComponent extends React.Component{
     }
     loadFrame(type){
         this.props.chooseBikeType(type);
-        this.props.setShowFrameComponent();
+        this.props.setShowFrameSizeComponent();
     }
 
 

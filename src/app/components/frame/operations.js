@@ -1,5 +1,5 @@
 import fetch from 'cross-fetch';
-import {Creators} from '../../../duck/actions';
+import {Creators} from '../../duck/actions';
 
 const frameSize = Creators.frameSize;
 const bikeType = Creators.bikeType;

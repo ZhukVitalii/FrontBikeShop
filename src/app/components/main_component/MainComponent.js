@@ -1,7 +1,7 @@
 import HeaderContainer from '../header/HeaderContainer'
 import React, {Component} from 'react';
 import FrameContainer from "../frame/FrameContainer";
-import FrameSizeComponent from "../frame_size/FrameSizeComponent";
+import FrameSizeContainer from "../frame_size/FrameSizeContainer";
 
 class  MainComponent extends React.Component {
 
@@ -12,11 +12,14 @@ class  MainComponent extends React.Component {
                 <HeaderContainer/>
                 </div>
                 <div>
-                    <FrameSizeComponent/>
+                    {this.props.showFrameSizeComponent ?
+                    <FrameSizeContainer/> :
+                        null
+                    }
                 </div>
 
                 <div>
-                    {this.props.showFrameComponent ?
+                    {this.props.showFrameSizeComponent ?
                         <FrameContainer /> :
                         null
                     }

@@ -1,39 +1,39 @@
 import { connect } from 'react-redux';
 import HeaderComponent from './HeaderComponent';
-import  frameOperations  from './duck/operations.js';
+import  headerOperations  from './operations.js';
 
 
 const mapStateToProps = state => ({
     bikeType: state.bikeType,
     frameSize: state.frameSize,
     frameData: state.frameData,
-    showFrameComponent: state.showFrameComponent
+    showFrameSizeComponent: state.showFrameSizeComponent
 });
 
 const mapDispatchToProps = (dispatch) => {
 
     const chooseBikeType = (type) => {
-        dispatch(frameOperations.bikeType(type));
-        dispatch(frameOperations.fetchFrameJson(type));
+        dispatch(headerOperations.bikeType(type));
+        dispatch(headerOperations.fetchFrameJson(type));
     };
     const chooseFrameSize = () =>{
-        dispatch(frameOperations.frameSize(1));
+        dispatch(headerOperations.frameSize(1));
     };
 
     const fetchFrameJson = (frame) => {
-        dispatch(frameOperations.fetchFrameJson(frame))
+        dispatch(headerOperations.fetchFrameJson(frame))
     };
 
-    const setShowFrameComponent = () => {
+    const setShowFrameSizeComponent = () => {
         console.log('Header Component step 1');
-        dispatch(frameOperations.showFrameComponent(true))
+        dispatch(headerOperations.showFrameSizeComponent(true))
     };
 
     return {
         chooseBikeType,
         chooseFrameSize,
         fetchFrameJson,
-        setShowFrameComponent
+        setShowFrameSizeComponent: setShowFrameSizeComponent
     }
 };
 

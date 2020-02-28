@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import FrameComponent from './FrameComponent';
-import frameOperations  from './duck/operations';
+import frameOperations  from './operations';
 
 const mapStateToProps = state => ({
     bikeType: state.bikeType,

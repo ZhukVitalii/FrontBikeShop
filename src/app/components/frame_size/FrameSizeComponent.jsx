@@ -74,13 +74,21 @@ class FrameSizeComponent extends React.Component {
                         <td>
                             <button type="button"
                                     className="btn btn-dark"
-                                    onClick={() => this.chooseSize('XXL')}>Вибрати</button>
+                                    onClick={() => this.loadFrame('XXL')}>Вибрати</button>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         )
+    }
+    loadFrame(size){
+        this.props.chooseFrameSize({
+            "bikeType" : this.props.bikeType,
+            "frameSize" : size
+
+        });
+        this.props.setShowFrameComponent();
     }
 }
 

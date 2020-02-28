@@ -1,15 +1,15 @@
-import types from '../../../duck/types';
+import types from '../../duck/types';
 
 const INITIAL_STATE = {
-    //bikeType: '1',
+    bikeType: '',
     frameSize: '',
     frameData: [{
         frameId :15,
         bikeType:16
-    }]
-    //showFrameComponent: ''
+    }],
+    showFrameComponent: ''
 };
-const frameReducer = (state=INITIAL_STATE, action) => {
+const frameSizeReducer = (state=INITIAL_STATE, action) => {
     switch(action.type) {
         case types.FRAME_SIZE: {
             const { value } = action;
@@ -17,15 +17,6 @@ const frameReducer = (state=INITIAL_STATE, action) => {
             return {
                 ...state,
                 frameSize: value
-            }
-        }
-
-        case types.BIKE_TYPE: {
-            const { value } = action;
-            console.log("Set Bike Type");
-            return {
-                ...state,
-                bikeType: value
             }
         }
 
@@ -47,9 +38,10 @@ const frameReducer = (state=INITIAL_STATE, action) => {
                 frameData
             }
         }
+
         case types.SHOW_FRAME_COMPONENT: {
             const { value } = action;
-            console.log("Set Show Frames");
+            console.log("Set Show Frame Component From Size");
             return {
                 ...state,
                 showFrameComponent: value
@@ -58,6 +50,6 @@ const frameReducer = (state=INITIAL_STATE, action) => {
 
         default: return state;
     }
-}
+};
 
-export default frameReducer;
+export default frameSizeReducer;
