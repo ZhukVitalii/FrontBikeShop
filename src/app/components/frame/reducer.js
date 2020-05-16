@@ -1,13 +1,16 @@
 import types from '../../duck/types';
 
 const INITIAL_STATE = {
-    //bikeType: '1',
-    frameSize: '',
-    frameData: [{
-        frameId :15,
-        bikeType:16
-    }]//,
- // showFrameSizeComponent: ''
+    bikeType: {
+        type: sessionStorage.getItem('bikeType') !== undefined ? sessionStorage.getItem('bikeType') : '',
+        typeId:sessionStorage.getItem('bikeType') !== undefined ? sessionStorage.getItem('bikeTypeId') : '',
+
+    },
+    frameSize: sessionStorage.getItem('frameSize') !== undefined ? sessionStorage.getItem('frameSize') : '',
+    frameData:undefined,
+    showWheelsSizeComponent: sessionStorage.getItem('showWheelsSizeComponent') !== undefined ? sessionStorage.getItem('showWheelsSizeComponent') : '',
+    manufacturerId: sessionStorage.getItem('frameManufacturer') !== undefined ? sessionStorage.getItem('frameManufacturer') : '',
+    showForkComponent: ''
 };
 const frameReducer = (state=INITIAL_STATE, action) => {
     switch(action.type) {
@@ -61,6 +64,24 @@ const frameReducer = (state=INITIAL_STATE, action) => {
             return {
                 ...state,
                 showFrameSizeComponent: value
+            }
+        }
+
+        case types.SHOW_WHEELS_SIZE_COMPONENT: {
+            const { value } = action;
+            console.log("Set Show Wheels");
+            return {
+                ...state,
+                showWheelsSizeComponent: value
+            }
+        }
+
+        case types.SHOW_FORK_COMPONENT: {
+            const { value } = action;
+            console.log("Set Show FORK Component");
+            return {
+                ...state,
+                showForkComponent: value
             }
         }
         default: return state;

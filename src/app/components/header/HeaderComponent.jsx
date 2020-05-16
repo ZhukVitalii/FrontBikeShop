@@ -21,9 +21,9 @@ class HeaderComponent extends React.Component{
                             <ul className="nav">
                                 <li className="dropdown1"><a href="#chooseBike">Зібрати велосипед</a>
                                     <ul className="dropdown2">
-                                        <li onClick={() => this.loadFrame({type:"MTB", typeId:1})}><a>MTB</a></li>
-                                        <li onClick={() => this.loadFrame({type:"SHOSSE", typeId:2})}><a>ШОССЕ</a></li>
-                                        <li onClick={() => this.loadFrame({type:"CITY", typeId:3})}><a>МІСЬКИЙ</a></li>
+                                        <li onClick={() => this.loadFrame({type:"MTB", typeId:1})}><p>MTB</p></li>
+                                        <li onClick={() => this.loadFrame({type:"SHOSSE", typeId:2})}><p>ШОССЕ</p></li>
+                                        <li onClick={() => this.loadFrame({type:"CITY", typeId:3})}><p>МІСЬКИЙ</p></li>
                                     </ul>
                                 </li>
                                 <li className="dropdown1"><a href="#cate">КОМППОНЕНТИ</a>

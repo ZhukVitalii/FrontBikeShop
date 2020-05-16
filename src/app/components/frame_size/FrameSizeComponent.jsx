@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class FrameSizeComponent extends React.Component {
+class FrameSizeComponent extends Component {
     // constructor(props) {
     //     super(props);
     //     this.chooseSize = this.chooseSize(msg).bind(this);
@@ -28,7 +28,11 @@ class FrameSizeComponent extends React.Component {
                         <td>145 - 155</td>
                         <td>33-36</td>
                         <td>XS (XSmall)</td>
-                        <td><button type="button" className="btn btn-dark">Вибрати</button></td>
+                        <td>
+                            <button type="button"
+                                    className="btn btn-dark"
+                                    onClick={() => this.loadFrame({'size':'XS', 'sizeId':4})}>Вибрати</button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">15"-16"</th>
@@ -36,7 +40,9 @@ class FrameSizeComponent extends React.Component {
                         <td>38-40</td>
                         <td>S (Small)</td>
                         <td>
-                            <button type="button" className="btn btn-dark">Вибрати</button>
+                            <button type="button"
+                                    className="btn btn-dark"
+                                    onClick={() => this.loadFrame({'size':'S', 'sizeId':3})}>Вибрати</button>
                         </td>
                     </tr>
                     <tr>
@@ -45,7 +51,9 @@ class FrameSizeComponent extends React.Component {
                         <td>43-47</td>
                         <td>M (Meduim)</td>
                         <td>
-                            <button type="button" className="btn btn-dark">Вибрати</button>
+                            <button type="button"
+                                    className="btn btn-dark"
+                                    onClick={() => this.loadFrame({'size':'M', 'sizeId':1})}>Вибрати</button>
                         </td>
                     </tr>
                     <tr>
@@ -54,7 +62,9 @@ class FrameSizeComponent extends React.Component {
                         <td>48-52</td>
                         <td>L (Large)</td>
                         <td>
-                            <button type="button" className="btn btn-dark">Вибрати</button>
+                            <button type="button"
+                                    className="btn btn-dark"
+                                    onClick={() => this.loadFrame({'size':'L', 'sizeId':2})}>Вибрати</button>
                         </td>
                     </tr>
                     <tr>
@@ -63,7 +73,9 @@ class FrameSizeComponent extends React.Component {
                         <td>55-58</td>
                         <td>XL (XLarge)</td>
                         <td>
-                            <button type="button" className="btn btn-dark">Вибрати</button>
+                            <button type="button"
+                                    className="btn btn-dark"
+                                    onClick={() => this.loadFrame({'size':'XL', 'sizeId':5})}>Вибрати</button>
                         </td>
                     </tr>
                     <tr>
@@ -74,7 +86,7 @@ class FrameSizeComponent extends React.Component {
                         <td>
                             <button type="button"
                                     className="btn btn-dark"
-                                    onClick={() => this.loadFrame('XXL')}>Вибрати</button>
+                                    onClick={() => this.loadFrame({'size':'XXL', 'sizeId':6})}>Вибрати</button>
                         </td>
                     </tr>
                     </tbody>
@@ -84,11 +96,13 @@ class FrameSizeComponent extends React.Component {
     }
     loadFrame(size){
         this.props.chooseFrameSize({
-            "bikeType" : this.props.bikeType,
-            "frameSize" : size
+            "bikeTypeId" : this.props.bikeType.typeId,
+            "bikeType" : this.props.bikeType.type,
+            "frameSize" : size.size,
+            "frameSizeId" : size.sizeId,
 
         });
-        this.props.setShowFrameComponent();
+        this.props.setShowWheelsSizeComponent();
     }
 }
 

@@ -6,31 +6,27 @@ const INITIAL_STATE = {
         typeId:sessionStorage.getItem('bikeType') !== undefined ? sessionStorage.getItem('bikeTypeId') : '',
 
     },
-    showFrameSizeComponent: sessionStorage.getItem('showFrameSizeComponent') !== undefined ? sessionStorage.getItem('showFrameSizeComponent') : ''
+    wheelsDiam:{
+        diam : sessionStorage.getItem('wheelsSize') !== undefined ? sessionStorage.getItem('wheelsSize') : '',
+        diamId : sessionStorage.getItem('wheelsSizeId') !== undefined ? sessionStorage.getItem('wheelsSizeId') : ''
+    },
+    frameSize: sessionStorage.getItem('frameSize') !== undefined ? sessionStorage.getItem('frameSize') : '',
+    frameData: '',
+    showFrameComponent: ''
 };
-const headerReducer = (state=INITIAL_STATE, action) => {
+const wheelsSizeReducer = (state=INITIAL_STATE, action) => {
     switch(action.type) {
-        case types.FRAME_SIZE: {
+        case types.WHEELS_SIZE: {
             const { value } = action;
-            console.log("Set Frame Size");
+            console.log("Set Wheel Size");
             return {
                 ...state,
                 frameSize: value
             }
         }
 
-        case types.BIKE_TYPE: {
-            const { value } = action;
-            console.log("Set Bike Type");
-            return {
-                ...state,
-                bikeType: value
-            }
-        }
-
         case types.REQUEST_FRAME_JSON: {
             const { frame } = action;
-            console.log("Send REQUEST");
             return {
                 ...state,
                 frame,
@@ -40,24 +36,22 @@ const headerReducer = (state=INITIAL_STATE, action) => {
 
         case types.RECEIVE_FRAME_JSON: {
             const { frameData } = action;
-            console.log("GET RESPONSE");
             return {
                 ...state,
                 frameData
             }
         }
 
-        // case types.SHOW_FRAME_SIZE_COMPONENT: {
-        //     const { value } = action;
-        //     console.log("Set Show Frame SIZES");
-        //     return {
-        //         ...state,
-        //         showFrameSizeComponent: value
-        //     }
-        // }
+        case types.SHOW_FRAME_COMPONENT: {
+            const { value } = action;
+            return {
+                ...state,
+                showFrameComponent: value
+            }
+        }
 
         default: return state;
     }
 };
 
-export default headerReducer;
+export default wheelsSizeReducer;

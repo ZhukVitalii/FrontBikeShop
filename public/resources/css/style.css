@@ -1217,6 +1217,11 @@ float: left;
 margin-left: 5%;
 width:58%;
 }
+
+.component-name {
+	color: #000;
+	margin-top: 4%;
+}
 .details-left-info  h3 {
 color: #000;
 font-size: 1.4em;
@@ -1268,17 +1273,26 @@ p.size{
 	font-weight:500;
 	display:inline-block;
 }
-a.length{
+div.length{
+	float: right;
 	color:#000;
 	font-size:1em;
-	font-weight:400;
+	font-weight:500;
 	border:1px solid;
 	padding:5px;
+}
+.size-type{
+	float: left;
+	color:#000;
+	font-size:1em;
+	font-weight:500;
+	border:1px solid;
+	padding:3px;
 }
 .btn_form{
 margin-top:2em;
 }
-.btn_form a {
+.btn_form button {
 	border: none;
 	outline: none;
 	display: inline-block;
@@ -1293,7 +1307,7 @@ margin-top:2em;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
-.btn_form a:hover{
+.btn_form button:hover{
 	background:transparent;
 	border:1px solid #000;
 	color:#000;
@@ -2158,7 +2172,7 @@ p.desc {
   font-size: 17px;
   margin-bottom: 0.7em;
 }
-.btn_form a {
+.btn_form button {
   font-size: 0.9em;
   padding: 8px 29px;
 }

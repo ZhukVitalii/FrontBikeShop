@@ -1,0 +1,59 @@
+.filter a {
+    text-decoration: none;
+}
+
+.filter {
+    font-family: monospace;
+}
+
+.filter ul {
+    background: darkorange;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.filter li {
+    color: #fff;
+    background: darkorange;
+    display: block;
+    float: left;
+    padding: 1rem;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+
+.filter li a {
+    color: #fff;
+}
+
+.filter li:hover {
+    background: red;
+    cursor: pointer;
+}
+
+.filter ul li ul {
+    background: orange;
+    visibility: hidden;
+    opacity: 0;
+    min-width: 5rem;
+    position: absolute;
+    transition: all 0.5s ease;
+    marggin-top: 1rem;
+    left: 0;
+    display: none;
+}
+
+.filter ul li:hover > ul,
+.filter ul li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+.filter ul li ul li {
+    clear: both;
+    width: 100%;
+}
+

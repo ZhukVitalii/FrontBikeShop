@@ -2,12 +2,9 @@ import types from '../../duck/types';
 
 const INITIAL_STATE = {
     bikeType: '',
-    frameSize: '',
-    frameData: [{
-        frameId :15,
-        bikeType:16
-    }],
-    showFrameComponent: ''
+    frameSize: sessionStorage.getItem('frameSize') !== undefined ? sessionStorage.getItem('frameSize') : '',
+    frameData: '',
+    showWheelsSizeComponent: ''
 };
 const frameSizeReducer = (state=INITIAL_STATE, action) => {
     switch(action.type) {
@@ -39,12 +36,12 @@ const frameSizeReducer = (state=INITIAL_STATE, action) => {
             }
         }
 
-        case types.SHOW_FRAME_COMPONENT: {
+        case types.SHOW_WHEELS_SIZE_COMPONENT: {
             const { value } = action;
-            console.log("Set Show Frame Component From Size");
+            console.log("Set Show Wheel Size Component From Size");
             return {
                 ...state,
-                showFrameComponent: value
+                showWheelsSizeComponent: value
             }
         }
 

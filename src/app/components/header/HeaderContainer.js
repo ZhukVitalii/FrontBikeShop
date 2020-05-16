@@ -7,17 +7,16 @@ const mapStateToProps = state => ({
     bikeType: state.bikeType,
     frameSize: state.frameSize,
     frameData: state.frameData,
-    showFrameSizeComponent: state.showFrameSizeComponent
+    showFrameSizeComponent: state.showFrameSizeComponent,
+    showWheelsSizeComponent: state.showWheelsSizeComponent
 });
 
 const mapDispatchToProps = (dispatch) => {
 
     const chooseBikeType = (type) => {
+        sessionStorage.setItem("bikeType", type.type);
+        sessionStorage.setItem("bikeTypeId", type.typeId);
         dispatch(headerOperations.bikeType(type));
-        dispatch(headerOperations.fetchFrameJson(type));
-    };
-    const chooseFrameSize = () =>{
-        dispatch(headerOperations.frameSize(1));
     };
 
     const fetchFrameJson = (frame) => {
@@ -25,13 +24,12 @@ const mapDispatchToProps = (dispatch) => {
     };
 
     const setShowFrameSizeComponent = () => {
-        console.log('Header Component step 1');
+        sessionStorage.setItem("showFrameSizeComponent", true);
         dispatch(headerOperations.showFrameSizeComponent(true))
     };
 
     return {
         chooseBikeType,
-        chooseFrameSize,
         fetchFrameJson,
         setShowFrameSizeComponent: setShowFrameSizeComponent
     }

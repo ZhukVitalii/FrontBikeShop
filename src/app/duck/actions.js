@@ -1,7 +1,3 @@
-//import * as types from './types';
-
-//export const fetchFrameSize = data => ({ type: types.FRAME_SIZE, payload: data });
-//export const fetchBikeType = data => ({ type: types.BIKE_TYPE, payload: data });
 
 import { createActions } from 'reduxsauce';
 
@@ -11,7 +7,14 @@ const { Creators, Types } = createActions({
     requestFrameJson: ['frame'],
     receiveFrameJson: ['frameData'],
     showFrameComponent: ['value'],
-    showFrameSizeComponent: ['value']
+    showFrameSizeComponent: ['value'],
+    wheelsSize: ['value'],
+    showWheelsSizeComponent: ['value'],
+    requestManufacturerJson: ['manufacturer'],
+    receiveManufacturerJson: ['manufacturersData'],
+    requestForkJson: ['fork'],
+    receiveForkJson: ['forkData'],
+    showForkComponent: ['value']
 });
 
 export { Creators, Types };

@@ -3,19 +3,20 @@ import {connect} from "react-redux";
 import FrameSizeComponent from "./FrameSizeComponent";
 
 const mapStateToProps = state => ({
-    bikeType: state.bikeType,
-    frameSize: state.frameSize,
-    frameData: state.frameData,
-    showFrameComponent: state.showFrameComponent
+    bikeType: state.headerReducer.bikeType,
+    showWheelsSizeComponent: state.showWheelsSizeComponent
 });
 
 const mapDispatchToProps = (dispatch) => {
 
     const chooseFrameSize = (size) =>{
+        sessionStorage.setItem("frameSize", size.frameSize);
         dispatch(frameSizeOperations.frameSize(size.frameSize));
         dispatch(frameSizeOperations.fetchFrameJson({
             'bikeType': size.bikeType,
-            'frameSizeId': size.frameSize,
+            'bikeTypeId': size.bikeTypeId,
+            'frameSizeId': size.frameSizeId,
+            'frameSize': size.frameSize,
         }));
     };
 
@@ -23,14 +24,15 @@ const mapDispatchToProps = (dispatch) => {
         dispatch(frameSizeOperations.fetchFrameJson(frame))
     };
 
-    const setShowFrameComponent = () => {
-        dispatch(frameSizeOperations.showFrameComponent(true))
+    const setShowWheelsSizeComponent = () => {
+        sessionStorage.setItem("showWheelsSizeComponent", true);
+        dispatch(frameSizeOperations.showWheelsSizeComponent(true))
     };
 
     return {
         chooseFrameSize: chooseFrameSize,
         fetchFrameJson,
-        setShowFrameComponent: setShowFrameComponent
+        setShowWheelsSizeComponent: setShowWheelsSizeComponent
     }
 };
 

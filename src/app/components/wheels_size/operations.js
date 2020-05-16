@@ -1,26 +1,28 @@
 import fetch from 'cross-fetch';
 import {Creators} from '../../duck/actions';
-
 const frameSize = Creators.frameSize;
 const bikeType = Creators.bikeType;
+const wheelsSize = Creators.wheelsSize;
 const requestFrameJsonAction = Creators.requestFrameJson;
 const receiveFrameJsonAction = Creators.receiveFrameJson;
-const showForkComponent = Creators.showForkComponent;
+const showFrameComponent = Creators.showFrameComponent;
 
 
-const fetchFrameJson = (request) => {
+
+const fetchFrameJson = (frame) => {
     return dispatch => {
 
-        dispatch(requestFrameJsonAction(request));
+        dispatch(requestFrameJsonAction(frame));
         return fetch('http://localhost:8080/frame/search',{
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                'bikeTypeId': request.typeId,
-                'bikeType': request.type,
-                'frameSize': request.frameSize,
-                'wheelsDiamId' : request.wheelsDiamId,
-                'manufacturerId' : request.manufacturerId,
+                'bikeTypeId': frame.bikeTypeId,
+                'bikeType': frame.bikeType,
+                'frameSizeId': frame.frameSizeId,
+                'frameSize': frame.frameSize,
+                'wheelsDiam': frame.wheelsSize,
+                'wheelsDiamId': frame.wheelsSizeId,
                 'itemsPerPage': '5',
                 'page':'0'
             }),
@@ -41,6 +43,7 @@ const fetchFrameJson = (request) => {
 export default {
     frameSize,
     bikeType,
+    wheelsSize,
     fetchFrameJson,
-    showForkComponent: showForkComponent
+    showFrameComponent: showFrameComponent
 }

@@ -4,7 +4,7 @@ const frameSize = Creators.frameSize;
 const bikeType = Creators.bikeType;
 const requestFrameJsonAction = Creators.requestFrameJson;
 const receiveFrameJsonAction = Creators.receiveFrameJson;
-const showFrameComponent = Creators.showFrameComponent;
+const showWheelsSizeComponent = Creators.showWheelsSizeComponent;
 
 
 
@@ -17,9 +17,10 @@ const fetchFrameJson = (frame) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                'bikeTypeId': frame.typeId,
-                'bikeType': frame.type,
+                'bikeTypeId': frame.bikeTypeId,
+                'bikeType': frame.bikeType,
                 'frameSizeId': frame.frameSizeId,
+                'frameSize': frame.frameSize,
                 'itemsPerPage': '5',
                 'page':'0'
             }),
@@ -41,5 +42,5 @@ export default {
     frameSize,
     bikeType,
     fetchFrameJson,
-    showFrameComponent: showFrameComponent
+    showWheelsSizeComponent: showWheelsSizeComponent
 }
