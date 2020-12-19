@@ -4,6 +4,7 @@ import FrameContainer from "../frame/FrameContainer";
 import FrameSizeContainer from "../frame_size/FrameSizeContainer";
 import WheelsSizeContainer from "../wheels_size/WheelsSizeContainer";
 import ForkContainer from "../fork/ForkContainer";
+// import ClearCache from "react-clear-cache";
 class  MainComponent extends React.Component {
 
     componentDidMount() {
@@ -16,25 +17,25 @@ class  MainComponent extends React.Component {
                 <HeaderContainer/>
                 </div>
                 <div>
-                    {this.props.showFrameSizeComponent ?
+                    {this.props.showFrameSizeComponent === "true" ?
                     <FrameSizeContainer/> :
                         null
                     }
                 </div>
                 <div>
-                    {this.props.showWheelsSizeComponent ?
+                    {this.props.showWheelsSizeComponent === "true" ?
                         <WheelsSizeContainer /> :
                         null
                     }
                 </div>
                 <div>
-                    {this.props.showFrameComponent ?
+                    {this.props.showFrameComponent === "true" ?
                         <FrameContainer /> :
                         null
                     }
                 </div>
                 <div>
-                    {this.props.showForkComponent ?
+                    {this.props.showForkComponent === "true" ?
                         <ForkContainer /> :
                         null
                     }
